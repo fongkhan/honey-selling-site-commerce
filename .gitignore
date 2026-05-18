@@ -1,0 +1,21 @@
+node_modules/
+.medusa/
+dist/
+build/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Uploads (use S3 / object storage in prod)
+uploads/
+
+# Logs
+*.log
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
