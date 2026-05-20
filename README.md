@@ -18,25 +18,42 @@ est [honey-selling-site-frontend](../frontend).
 ## Démarrage local avec Docker (le plus simple)
 
 ```bash
-nvm use                              # 24.15.0
-cp .env.example .env                 # éditer JWT_SECRET, COOKIE_SECRET, webhook
-docker compose up -d --build         # postgres + redis + medusa
-# Premier setup :
-docker compose exec commerce npm run db:migrate
-docker compose exec commerce npm run user:create -- --email admin@example.com --password change-me
+# 1. Copier et configurer le fichier d'environnement
+cp .env.example .env
+
+# 2. Démarrer les bases de données Postgres + Redis locales
+# Note: Pour éviter les conflits de ports sous Windows, Postgres écoute localement sur le port 5435
+docker compose up -d postgres redis
+
+# 3. Installer les dépendances localement
+npm install
+
+# 4. Appliquer les migrations de base de données
+npm run db:migrate
+
+# 5. Lancer le script de seeding (Miels Premium)
+# Remplit le catalogue avec 4 miels bio premium (formats 250g et 500g, stocks et prix configurés)
+npm run seed
+
+# 6. Créer le compte administrateur pour le tableau de bord
+npx medusa user -e admin@miel.fr -p adminpassword
+
+# 7. Démarrer le serveur de développement Medusa v2
+npm run dev
 ```
 
-Admin Medusa : <http://localhost:9000/app>
-Store API : <http://localhost:9000/store/products>
+*   **Admin Dashboard** : <http://localhost:9000/app> (identifiants: `admin@miel.fr` / `adminpassword`)
+*   **Store API** : <http://localhost:9000/store/products>
 
 ## Démarrage local sans Docker
 
 ```bash
-# Postgres + Redis doivent être installés et démarrés ailleurs.
-nvm use
+# S'assurer qu'une base Postgres (port 5435) et Redis tournent sur la machine
 cp .env.example .env
 npm install
 npm run db:migrate
+npm run seed
+npx medusa user -e admin@miel.fr -p adminpassword
 npm run dev                          # http://localhost:9000
 ```
 

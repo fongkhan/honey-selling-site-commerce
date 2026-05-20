@@ -16,6 +16,6 @@ export default defineConfig({
   },
   admin: {
     disable: false,
-    path: '/admin',
+    path: '/app',
   },
 });
