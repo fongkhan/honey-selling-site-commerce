@@ -185,7 +185,7 @@ export default async function seed({ container }: ExecArgs) {
       prices: [
         {
           currency_code: 'eur',
-          amount: Math.round(v.price * 100), // En centimes d'Euros (Integer)
+          amount: v.price, // Medusa v2 utilise l'unité principale (major unit)
         }
       ]
     })),
