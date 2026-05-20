@@ -82,6 +82,10 @@ commerce/
 ├── docker-compose.yml
 ├── O2SWITCH_DEPLOYMENT.md
 └── src/
+    ├── scripts/
+    │   ├── seed.ts              # Seeding du catalogue (Acacia, Lavande, etc.)
+    │   ├── seed-shipping.ts     # Seeding des tarifs et modes de livraison
+    │   └── test-query.ts        # Script utilitaire de tests de requêtes
     └── subscribers/
         └── trigger-build.ts
 ```
