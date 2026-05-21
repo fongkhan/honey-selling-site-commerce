@@ -108,6 +108,7 @@ Voir `.env.example`. Variables critiques :
 - `REDIS_URL` — Redis
 - `JWT_SECRET`, `COOKIE_SECRET` — 32+ caractères aléatoires
 - `BUILD_WEBHOOK_URL`, `BUILD_WEBHOOK_SECRET` — flux rebuild
+- `STRIPE_API_KEY` — Clé Stripe secrète (ex: `sk_test_...`) pour l'autorisation des paiements Stripe.
 
 ## Voir aussi
 

@@ -21,10 +21,12 @@
     "@medusajs/dashboard": "^2.0.0",
     "@medusajs/framework": "^2.0.0",
     "@medusajs/medusa": "^2.0.0",
+    "@medusajs/payment-stripe": "^2.15.3",
     "awilix": "^8.0.1",
     "pg": "^8.13.0"
   },
   "devDependencies": {
+    "@medusajs/cli": "^2.15.2",
     "@medusajs/test-utils": "^2.0.0",
     "@types/node": "^22.7.0",
     "prettier": "^3.3.0",

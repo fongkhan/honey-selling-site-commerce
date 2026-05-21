@@ -18,4 +18,20 @@ export default defineConfig({
     disable: false,
     path: '/app',
   },
+  modules: [
+    {
+      resolve: "@medusajs/payment",
+      options: {
+        providers: [
+          {
+            resolve: "@medusajs/payment-stripe",
+            id: "stripe",
+            options: {
+              apiKey: process.env.STRIPE_API_KEY,
+            },
+          },
+        ],
+      },
+    },
+  ],
 });
