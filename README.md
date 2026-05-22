@@ -35,6 +35,10 @@ npm run db:migrate
 # Remplit le catalogue avec 4 miels bio premium (formats 250g et 500g, stocks et prix configurés)
 npm run seed
 
+# 5b. Créer les emplacements de stock physiques (Dépôts-vente)
+# Initialise "Dépôt-vente Clamart", "Dépôt-vente Paris" et "Miellerie Principale" dans Medusa v2
+npm run seed:depots
+
 # 6. Créer le compte administrateur pour le tableau de bord
 npx medusa user -e admin@miel.fr -p adminpassword
 
@@ -85,6 +89,7 @@ commerce/
     ├── scripts/
     │   ├── seed.ts              # Seeding du catalogue (Acacia, Lavande, etc.)
     │   ├── seed-shipping.ts     # Seeding des tarifs et modes de livraison
+    │   ├── seed-depots.ts       # [NOUVEAU] Seeding des dépôts-vente physiques (Clamart, Paris)
     │   └── test-query.ts        # Script utilitaire de tests de requêtes
     └── subscribers/
         └── trigger-build.ts

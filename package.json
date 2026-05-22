@@ -11,6 +11,7 @@
     "start": "medusa start",
     "dev": "medusa develop",
     "seed": "medusa exec ./src/scripts/seed.ts",
+    "seed:depots": "medusa exec ./src/scripts/seed-depots.ts",
     "db:migrate": "medusa db:migrate",
     "db:setup": "medusa db:setup",
     "user:create": "medusa user",
